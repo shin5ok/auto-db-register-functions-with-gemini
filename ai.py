@@ -11,7 +11,6 @@ model = GenerativeModel(
     "gemini-1.5-flash-002",
 )
 
-
 def generate(file_path: str):
     # print(f"Processing...{file_path}")
 
@@ -31,11 +30,12 @@ def generate(file_path: str):
         """],
         generation_config=c.GEN_CONFIG,
         safety_settings=safety_settings,
-        stream=True,
+        stream=False,
     )
 
-    for response in responses:
-        print(response.text, end="")
+    import json
+
+    return json.loads(responses.text)
 
 if __name__ == "__main__":
     import sys

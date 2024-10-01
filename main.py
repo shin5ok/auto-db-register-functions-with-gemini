@@ -2,7 +2,7 @@ import os
 import uuid
 
 from google.cloud import storage
-import urllib.parse as urlparse
+from urllib.parse import urlparse
 
 import functions_framework
 
@@ -22,7 +22,7 @@ BUCKET_NAME = c.BUCKET_NAME
 @functions_framework.cloud_event
 def gcs_trigger(cloud_event):
 
-    ev = cloud_event
+    ev = cloud_event.data
 
     # イベントデータの取得
     # ファイル情報の取得

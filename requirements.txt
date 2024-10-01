@@ -3,3 +3,4 @@ google-cloud-aiplatform
 google-cloud-firestore
 firebase-admin
 gunicorn
+python-ulid

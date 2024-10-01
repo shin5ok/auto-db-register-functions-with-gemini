@@ -25,8 +25,9 @@ def generate(file_path: str):
     responses = model.generate_content(
         [document1, 
         """
-         できるだけ情報を読み取って JSON で出力して
-         キー名は英語にして
+         構造的に丁寧に情報を読み取って JSON で出力して
+         最後まで読み取るように
+         キー名は日本語にして
         """],
         generation_config=c.GEN_CONFIG,
         safety_settings=safety_settings,

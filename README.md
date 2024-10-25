@@ -1,4 +1,4 @@
-# Auto DB register functions with Gemini
+# Auto DB register Functions with Gemini
 
 ## Setup
 

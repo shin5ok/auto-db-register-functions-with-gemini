@@ -1,6 +1,9 @@
+
 STORAGE := $(STORAGE)
 REGION := $(REGION)
+
 PROJECT_ID := $(PROJECT_ID)
+PROJECT_NUMBER := $(PROJECT_NUMBER)
 
 
 .PHONY: sa
@@ -10,6 +13,7 @@ sa:
 	gcloud projects add-iam-policy-binding ${PROJECT_ID} --role=roles/datastore.user --member=serviceAccount:gcs-trigger@${PROJECT_ID}.iam.gserviceaccount.com
 	gcloud projects add-iam-policy-binding ${PROJECT_ID} --role=roles/aiplatform.user --member=serviceAccount:gcs-trigger@${PROJECT_ID}.iam.gserviceaccount.com
 	gcloud projects add-iam-policy-binding ${PROJECT_ID} --role=roles/eventarc.eventReceiver --member=serviceAccount:gcs-trigger@${PROJECT_ID}.iam.gserviceaccount.com
+	gcloud projects add-iam-policy-binding ${PROJECT_ID} --member=serviceAccount:service-${PROJECT_NUMBER}@gs-project-accounts.iam.gserviceaccount.com --role=roles/pubsub.publisher
 
 .PHONY: deploy
 deploy:

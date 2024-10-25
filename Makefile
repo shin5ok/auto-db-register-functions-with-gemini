@@ -5,6 +5,9 @@ REGION := $(REGION)
 PROJECT_ID := $(PROJECT_ID)
 PROJECT_NUMBER := $(PROJECT_NUMBER)
 
+.PHONY: db
+db:
+	gcloud firestore databases create --location=${REGION}
 
 .PHONY: sa
 sa:
